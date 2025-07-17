@@ -13,7 +13,7 @@
     "current": "./index.js",
     "add": "./future.js",
     "sub": "./past.js",
-    "guess": "./guess.js"
+    "guess": "./question.js"
   },
   "repository": "https://github.com/GLancer14/ndse-homeworks",
   "dependencies": {
