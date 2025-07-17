@@ -16,7 +16,7 @@ const argv = yargs(hideBin(process.argv)).option("year", {
 }).argv;
 
 const dateNow = moment();
-if (argv._.length === 1 &&  typeof +argv._[0] === "number") {
+if (argv._.length === 1 && typeof +argv._[0] === "number") {
   if (argv.year) {
     console.log(dateNow.subtract(argv._[0], "years").toISOString());
   } else if (argv.month) {
