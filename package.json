@@ -9,5 +9,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": "https://github.com/GLancer14/ndse-homeworks"
+  "bin": {
+    "current": "./index.js",
+    "add": "./future.js",
+    "sub": "./past.js",
+    "guess": "./guess.js"
+  },
+  "repository": "https://github.com/GLancer14/ndse-homeworks",
+  "dependencies": {
+    "moment": "^2.30.1",
+    "yargs": "^18.0.0"
+  }
 }

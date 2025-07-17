@@ -2,6 +2,7 @@
 
 const yargs = require("yargs/yargs");
 const { hideBin } = require("yargs/helpers");
+const moment = require("moment");
 
 const argv = yargs(hideBin(process.argv)).option("year", {
   alias: "y",
@@ -14,17 +15,16 @@ const argv = yargs(hideBin(process.argv)).option("year", {
   type: "boolean",
 }).argv;
 
-const dateNow = new Date();
-
-if (argv._.length === 0) {
+const dateNow = moment();
+if (argv._.length === 1 &&  typeof +argv._[0] === "number") {
   if (argv.year) {
-    console.log(dateNow.getFullYear());
+    console.log(dateNow.subtract(argv._[0], "years").toISOString());
   } else if (argv.month) {
-    console.log(dateNow.getMonth());
+    console.log(dateNow.subtract(argv._[0], "months").toISOString());
   } else if (argv.date) {
-    console.log(dateNow.getDate());
+    console.log(dateNow.subtract(argv._[0], "days").toISOString());
   } else {
-    console.log(dateNow.toISOString());
+    console.error("Error: Unknown command");
   }
 } else {
   console.error("Error: Unknown command");
