@@ -9,5 +9,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": "https://github.com/GLancer14/ndse-homeworks"
+  "bin": {
+    "loggame": "./headsOrTails.js",
+    "checklog": "./analyzeLog.js"
+  },
+  "repository": "https://github.com/GLancer14/ndse-homeworks",
+  "dependencies": {
+    "yargs": "^18.0.0"
+  }
 }
