@@ -9,5 +9,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": "https://github.com/GLancer14/ndse-homeworks"
+  "bin": {
+    "weatherat": "index.js"
+  },
+  "repository": "https://github.com/GLancer14/ndse-homeworks",
+  "devDependencies": {
+    "dotenv": "^17.2.0"
+  },
+  "dependencies": {
+    "yargs": "^18.0.0"
+  }
 }

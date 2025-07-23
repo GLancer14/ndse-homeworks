@@ -1,6 +1,7 @@
 dist
 doc
 .idea
+config.js
 
 # Logs
 logs
