@@ -1,0 +1,46 @@
+mr-robot@mr-robot:~$ docker pull node:15.14
+15.14: Pulling from library/node
+4b57d41e8391: Pull complete 
+bfde2ec33fbc: Pull complete 
+55fab5cadd3c: Pull complete 
+bd821d20ef8c: Pull complete 
+6041b69671c6: Pull complete 
+7b6173a10eb8: Pull complete 
+989c5d2d2313: Pull complete 
+787f5e2f1047: Pull complete 
+dc05be471d51: Pull complete 
+Digest: sha256:608bba799613b1ebf754034ae008849ba51e88b23271412427b76d60ae0d0627
+Status: Downloaded newer image for node:15.14
+docker.io/library/node:15.14
+
+mr-robot@mr-robot:~$ docker run --name first_node -d -v ./data:/var/first/data node:15.14 sh -c "sleep infinity"
+298f0c724ff09446cb195a7091d8b2777cb22be01922486d90d1a80e4584e053
+
+mr-robot@mr-robot:~$ docker run --name second_node -d -v ./data:/var/second/data node:15.14 sh -c "sleep infinity"
+6140971c57da931b1d7f64d441445ce61a2673f3bade482c9bf383a6838fb676
+
+mr-robot@mr-robot:~$ docker exec -d first_node touch /var/first/data/new.txt
+
+Добавил файл newest.txt в папку 'data' на хостовой машине. 
+
+mr-robot@mr-robot:~$ docker exec -it second_node sh
+# cd var/second/data      
+# ls
+new.txt  newest.txt
+# cat new.txt
+This file created by command 
+	docker exec -d first_node touch /var/first/data/new.txt
+# cat newest.txt
+This file created manually
+
+mr-robot@mr-robot:~$ docker stop first_node second_node
+first_node
+second_node
+
+mr-robot@mr-robot:~$ docker rm first_node second_node
+first_node
+second_node
+
+mr-robot@mr-robot:~$ docker rmi node:15.14
+Untagged: node:15.14
+Deleted: sha256:608bba799613b1ebf754034ae008849ba51e88b23271412427b76d60ae0d0627

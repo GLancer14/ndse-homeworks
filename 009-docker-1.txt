@@ -1,0 +1,50 @@
+mr-robot@mr-robot:~$ docker pull busybox
+Using default tag: latest
+latest: Pulling from library/busybox
+90b9666d4aed: Pull complete 
+Digest: sha256:f85340bf132ae937d2c2a763b8335c9bab35d6e8293f70f606b9c6178d84f42b
+Status: Downloaded newer image for busybox:latest
+docker.io/library/busybox:latest
+
+mr-robot@mr-robot:~$ docker run --name pinger busybox ping -c 7 netology.ru
+PING netology.ru (51.250.51.8): 56 data bytes
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 0 packets received, 100% packet loss
+
+mr-robot@mr-robot:~$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS                     PORTS     NAMES
+9653d052b7ee   busybox   "ping -c 7 netology.…"   2 minutes ago   Exited (1) 2 minutes ago             pinger
+
+mr-robot@mr-robot:~$ docker logs -t pinger
+2025-07-26T13:10:57.074605649Z PING netology.ru (51.250.51.8): 56 data bytes
+2025-07-26T13:10:57.074656665Z 
+2025-07-26T13:10:57.074662783Z --- netology.ru ping statistics ---
+2025-07-26T13:10:57.074667977Z 7 packets transmitted, 0 packets received, 100% packet loss
+
+mr-robot@mr-robot:~$ docker start pinger
+pinger
+
+mr-robot@mr-robot:~$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS                      PORTS     NAMES
+9653d052b7ee   busybox   "ping -c 7 netology.…"   9 minutes ago   Exited (1) 39 seconds ago             pinger
+
+mr-robot@mr-robot:~$ docker logs -t pinger
+2025-07-26T13:10:57.074605649Z PING netology.ru (51.250.51.8): 56 data bytes
+2025-07-26T13:10:57.074656665Z 
+2025-07-26T13:10:57.074662783Z --- netology.ru ping statistics ---
+2025-07-26T13:10:57.074667977Z 7 packets transmitted, 0 packets received, 100% packet loss
+2025-07-26T13:19:51.267468704Z PING netology.ru (51.250.51.8): 56 data bytes
+2025-07-26T13:19:51.267499862Z 
+2025-07-26T13:19:51.267506671Z --- netology.ru ping statistics ---
+2025-07-26T13:19:51.267513060Z 7 packets transmitted, 0 packets received, 100% packet loss
+
+2 запуска команды PING, 14 запросов отправлено
+
+mr-robot@mr-robot:~$ docker rm pinger
+pinger
+
+mr-robot@mr-robot:~$ docker rmi busybox
+Untagged: busybox:latest
+Deleted: sha256:f85340bf132ae937d2c2a763b8335c9bab35d6e8293f70f606b9c6178d84f42b
+
