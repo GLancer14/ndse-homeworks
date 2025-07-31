@@ -1,4 +1,5 @@
 const express = require("express");
+const http = require("http");
 const fs = require("fs");
 const Book = require("../src/Book");
 const books = require("../src/books");
@@ -24,6 +25,16 @@ router.post("/", fileMulter.single("book"), (req, res) => {
 router.get("/:id", (req, res) => {
   const book = books.find(item => item.id === req.params.id);
   if (book) {
+    http.post("http://localhost:3001/counter/:bookId/incr", (apiRes) => {
+      let data = "";
+      apiRes.on("data", (chunk) => {
+        data += chunk;
+      });
+      apiRes.on("end", () => {
+        console.log(data);
+      });
+    });
+
     res.json(book);
   } else {
     res.status(404);
