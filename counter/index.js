@@ -22,7 +22,7 @@ router.get("/counter/:bookId", (req, res) => {
       viewsCount = 0;
     }
 
-    res.json({ counter: viewsCount });
+    res.json(viewsCount);
   });
 });
 

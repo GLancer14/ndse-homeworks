@@ -25,17 +25,28 @@ router.post("/", fileMulter.single("book"), (req, res) => {
 router.get("/:id", (req, res) => {
   const book = books.find(item => item.id === req.params.id);
   if (book) {
-    http.post("http://localhost:3001/counter/:bookId/incr", (apiRes) => {
+    const request = http.request({
+      hostname: "localhost",
+      port: 3001,
+      path: `/counter/${req.params.id}/incr`,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      }
+    }, (apiRes) => {
       let data = "";
       apiRes.on("data", (chunk) => {
         data += chunk;
       });
       apiRes.on("end", () => {
-        console.log(data);
+        console.log(`Book ${book.title} has been viewed ${data} times`);
+        res.json({book, viewsCount: data});
       });
+    }).on("error", (e) => {
+      console.error(e);
     });
 
-    res.json(book);
+    request.end();
   } else {
     res.status(404);
     res.json({ message: "404 Not found" });
