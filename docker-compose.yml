@@ -1,0 +1,18 @@
+services:
+    counter:
+        build: ./counter
+        volumes:
+            - ./volume:/volume
+        ports:
+            - 3001:3001
+        environment:
+            - PORT=3001
+    library:
+        build: ./library
+        volumes:
+            - ./volume:/volume
+        ports:
+            - 3000:3000
+        environment:
+            - PORT=3000
+            - COUNTER_URL=counter

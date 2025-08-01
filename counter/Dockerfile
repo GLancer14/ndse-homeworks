@@ -5,11 +5,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY *.js ./
-COPY ./src ./src
-COPY ./middleware ./middleware
-COPY ./public ./public
-COPY ./routes ./routes
 
-EXPOSE 3000
+EXPOSE 3001
 
 CMD ["npm", "run", "start", "-L"]

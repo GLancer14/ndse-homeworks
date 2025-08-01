@@ -26,7 +26,7 @@ router.get("/:id", (req, res) => {
   const book = books.find(item => item.id === req.params.id);
   if (book) {
     const request = http.request({
-      hostname: "localhost",
+      hostname: process.env.COUNTER_URL,
       port: 3001,
       path: `/counter/${req.params.id}/incr`,
       method: "POST",

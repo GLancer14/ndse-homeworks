@@ -2,7 +2,7 @@ const { v4: uuidv4 } = require("uuid");
 
 class Book {
   constructor(bookObject) {
-    this.id = uuidv4();
+    this.id = bookObject?.id || uuidv4();
     this.title = bookObject?.title || "";
     this.description = bookObject?.description || "";
     this.authors = bookObject?.authors || "";
