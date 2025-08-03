@@ -16,6 +16,7 @@ router.post("/", fileMulter.single("book"), (req, res) => {
   if (req.file) {
     newBook.fileBook = req.file.filename;
   }
+  console.log(req.body);
 
   books.push(newBook);
   res.status(201);
@@ -35,9 +36,11 @@ router.get("/:id", (req, res) => {
 router.put("/:id", fileMulter.single("book"), (req, res) => {
   const bookIndex = books.findIndex(item => item.id === req.params.id);
   if (bookIndex !== -1) {
+    console.log(req.body);
     books[bookIndex] = {
       ...books[bookIndex],
       ...req.body,
+      favorite: req.body.favorite ? true : false,
     };
     if (req.file) {
       fs.rm(__dirname + `/../public/books/${books[bookIndex].fileBook}`, err => {

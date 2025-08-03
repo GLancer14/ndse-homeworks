@@ -1,29 +1,29 @@
 <%- include("../port/layout-start") %>
-<%- include("../port/menu") %>
+<%- include("../port/header") %>
 
-<h1 class="page-header">Изменить книгу</h1>
-<form class="form_add-book" action="/api/books/<%= book.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-  <label class="add-book_name-label">
-    <span class="add-book_name-desc">Добавить в избранное</span>
-    <input class="add-boot_name-input" name="favorite" type="checkbox" <%= (book.favorite === true && 'checked') %>>
+<h2 class="page-header">Изменить книгу</h2>
+<form class="form_update-book" action="/api/books/<%= book.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+  <label class="update-book_favorite-label">
+    <span class="update-book_favorite-desc">Добавить в избранное</span>
+    <input class="add-boot_favorite-input" name="favorite" type="checkbox" value="true" <%= (book.favorite === true ? "checked" : "") %>>
   </label>
-  <label class="add-book_name-label">
-    <span class="add-book_name-desc">Название книги</span>
+  <label class="update-book_name-label">
+    <span class="update-book_name-desc">Название книги:</span>
     <input class="add-boot_name-input" name="title" type="text" value="<%= book.title %>">
   </label>
-  <label class="add-book_authors-label">
-    <span class="add-book_authors-desc">Авторы</span>
+  <label class="update-book_authors-label">
+    <span class="update-book_authors-desc">Авторы:</span>
     <input class="add-boot_authors-input" name="authors" type="text" value="<%= book.authors %>">
   </label>
-  <label class="add-book_desc-label">
-    <span class="add-book_desc-desc">Описание книги</span>
-    <textarea class="add-boot_desc-input" name="description"><%= book.description%></textarea>
+  <label class="update-book_desc-label">
+    <span class="update-book_desc-desc">Описание книги:</span>
+    <textarea class="add-boot_desc-textarea" name="description"><%= book.description%></textarea>
   </label>
-  <label class="add-book_file-book_label">
-    <span class="add-book_file-book_desc">Текст книги</span>
+  <label class="update-book_file-book_label">
+    <span class="update-book_file-book_desc">Текст книги:</span>
     <input class="add-boot_file-book_input" name="book" type="file" accept=".txt">
   </label>
-  <button class="add-book_submit">Изменить</button>
+  <button class="update-book_submit">Изменить</button>
 </form>
 
 <%- include("../port/layout-end") %>

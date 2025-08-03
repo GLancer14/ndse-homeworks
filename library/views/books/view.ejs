@@ -1,14 +1,14 @@
 <%- include("../port/layout-start") %>
-<%- include("../port/menu") %>
+<%- include("../port/header") %>
 
-<h1 class="page-header"><%= book.title %></h1>
+<h2 class="page-header"><%= book.title %></h2>
 <div class="book-wrp">
   <div class="book-views-count-wrp">
     <span class="book-view-count-desc">Количество просмотров: </span>
     <span class="book-view-count"><%= viewsCount %></span>
   </div>
-  <% if (book.favorite) { %>
-    <div class="book-favorite">Избанная книга</div>
+  <% if (book.favorite === true) { %>
+    <div class="book-favorite">Избранная книга</div>
   <% } %>
   <div class="book-name"><%= book.title %></div>
   <div class="book-authors"><%= book.authors %></div>

@@ -1,3 +1,241 @@
+*, *::after, *::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: none;
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
+
+  color: white;
+}
+
+a:hover {
+  color: black;
+}
+
+li {
+  list-style-type: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+
+  background-color: black;
+  color: white;
+}
+
+.container {
+  width: 800px;
+  padding: 10px;
+
+  background-color: rgb(77, 77, 77);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.page-header {
+  margin-top: 20px;
+}
+
 .book-wrp {
   width: 300px;
+}
+
+/* index */
+
+.books_list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5%;
+
+  margin-top: 10px;
+}
+
+.books_list-item {
+  width: 30%;
+
+  margin-top: 10px;
+}
+
+.book_actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 10px;
+}
+
+.book_edit-btn, .book_actions_delete-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 30px;
+
+  font-size: 14px;
+
+  background-color: white;
+  color: black;
+}
+
+.book_edit-btn:hover, .book_actions_delete-btn:hover {
+  background-color: black;
+  color: white;
+}
+
+/* add book */
+
+.form_add-book {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin-top: 10px;
+}
+
+.add-book_name-label {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+
+  cursor: pointer;
+}
+
+.add-book_favorite-label {
+  margin-top: 10px;
+
+  cursor: pointer;
+}
+
+.add-book_authors-label {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+
+  cursor: pointer;
+}
+
+.add-book_desc-label {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+
+  cursor: pointer;
+}
+
+.add-boot_desc-textarea {
+  min-height: 100px;
+}
+
+.add-book_file-book_label {
+  margin: 10px 0;
+
+  cursor: pointer;
+}
+
+.add-book_submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 30px;
+
+  font-size: 14px;
+
+  background-color: white;
+  color: black;
+}
+
+.add-book_submit:hover {
+  background-color: black;
+  color: white;
+}
+
+/* update book */
+
+.form_update-book {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin-top: 10px;
+}
+
+.update-book_name-label {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+
+  cursor: pointer;
+}
+
+.update-book_favorite-label {
+  margin-top: 10px;
+
+  cursor: pointer;
+}
+
+.update-book_authors-label {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+
+  cursor: pointer;
+}
+
+.update-book_desc-label {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+
+  cursor: pointer;
+}
+
+.update-boot_desc-textarea {
+  min-height: 100px;
+}
+
+.update-book_file-book_label {
+  margin: 10px 0;
+
+  cursor: pointer;
+}
+
+.update-book_submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 30px;
+
+  font-size: 14px;
+
+  background-color: white;
+  color: black;
+}
+
+.update-book_submit:hover {
+  background-color: black;
+  color: white;
+}
+
+/* view */
+
+.book-wrp {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  margin-top: 10px;
 }

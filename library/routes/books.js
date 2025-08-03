@@ -64,6 +64,7 @@ router.get("/book/update/:id", (req, res) => {
     });
     apiRes.on("end", () => {
       const parsedData = JSON.parse(rawData);
+      console.log(parsedData)
       res.render("../views/books/update", {
         book: parsedData.book,
         title: "Книги",

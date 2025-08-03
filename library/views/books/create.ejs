@@ -1,26 +1,26 @@
 <%- include("../port/layout-start") %>
-<%- include("../port/menu") %>
+<%- include("../port/header") %>
 
-<h1 class="page-header">Добавить книгу</h1>
+<h2 class="page-header">Добавить книгу</h2>
 <form class="form_add-book" action="/api/books" method="POST" enctype="multipart/form-data">
-  <label class="add-book_name-label">
-    <span class="add-book_name-desc">Добавить в избранное</span>
-    <input class="add-boot_name-input" name="favorite" type="checkbox">
+  <label class="add-book_favorite-label">
+    <span class="add-book_favorite-desc">Добавить в избранное</span>
+    <input class="add-boot_favorite-input" name="favorite" type="checkbox" value="true">
   </label>
   <label class="add-book_name-label">
-    <span class="add-book_name-desc">Название книги</span>
+    <span class="add-book_name-desc">Название книги:</span>
     <input class="add-boot_name-input" name="title" type="text">
   </label>
   <label class="add-book_authors-label">
-    <span class="add-book_authors-desc">Авторы</span>
+    <span class="add-book_authors-desc">Авторы:</span>
     <input class="add-boot_authors-input" name="authors" type="text">
   </label>
   <label class="add-book_desc-label">
-    <span class="add-book_desc-desc">Описание книги</span>
-    <textarea class="add-boot_desc-input" name="description"></textarea>
+    <span class="add-book_desc-desc">Описание книги:</span>
+    <textarea class="add-boot_desc-textarea" name="description"></textarea>
   </label>
   <label class="add-book_file-book_label">
-    <span class="add-book_file-book_desc">Текст книги</span>
+    <span class="add-book_file-book_desc">Текст книги:</span>
     <input class="add-boot_file-book_input" name="book" type="file">
   </label>
   <button class="add-book_submit">Добавить</button>
