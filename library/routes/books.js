@@ -16,12 +16,33 @@ router.get("/:id", (req, res) => {
       rawData += chunk;
     });
     apiRes.on("end", () => {
-      const parsedData = JSON.parse(rawData);
-      res.render("../views/books/view", {
-        book: parsedData.book,
-        viewsCount: parsedData.viewsCount,
-        title: "Книги",
+      const { book } = JSON.parse(rawData);
+      const request = http.request({
+        hostname: process.env.COUNTER_URL,
+        port: 3001,
+        path: `/counter/${req.params.id}/incr`,
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        }
+      }, apiRes => {
+        let data = "";
+        apiRes.on("data", (chunk) => {
+          data += chunk;
+        });
+        apiRes.on("end", () => {
+          console.log(`Book ${book.title} has been viewed ${data} times`);
+          res.render("../views/books/view", {
+            book,
+            viewsCount: data,
+            title: "Книги",
+          });
+        });
+      }).on("error", (e) => {
+        console.error(e);
       });
+  
+      request.end();
     });
   }).on("error", e => {
     console.log(e);

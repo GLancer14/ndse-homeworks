@@ -1,6 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const methodOverride = require("method-override");
+const path = require("path");
 const indexRoutes = require("./routes/index");
 const booksRoutes = require("./routes/books");
 const userRoutes = require("./routes/user");
@@ -10,7 +11,7 @@ const error404 = require("./middleware/404");
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(methodOverride("_method"));
 app.set("view engine", "ejs");
 

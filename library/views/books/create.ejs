@@ -2,7 +2,7 @@
 <%- include("../port/menu") %>
 
 <h1 class="page-header">Добавить книгу</h1>
-<form class="form_add-book" action="/api/books" method="POST">
+<form class="form_add-book" action="/api/books" method="POST" enctype="multipart/form-data">
   <label class="add-book_name-label">
     <span class="add-book_name-desc">Добавить в избранное</span>
     <input class="add-boot_name-input" name="favorite" type="checkbox">
