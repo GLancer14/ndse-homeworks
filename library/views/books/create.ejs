@@ -1,0 +1,29 @@
+<%- include("../port/layout-start") %>
+<%- include("../port/menu") %>
+
+<h1 class="page-header">Добавить книгу</h1>
+<form class="form_add-book" action="/api/books" method="POST">
+  <label class="add-book_name-label">
+    <span class="add-book_name-desc">Добавить в избранное</span>
+    <input class="add-boot_name-input" name="favorite" type="checkbox">
+  </label>
+  <label class="add-book_name-label">
+    <span class="add-book_name-desc">Название книги</span>
+    <input class="add-boot_name-input" name="title" type="text">
+  </label>
+  <label class="add-book_authors-label">
+    <span class="add-book_authors-desc">Авторы</span>
+    <input class="add-boot_authors-input" name="authors" type="text">
+  </label>
+  <label class="add-book_desc-label">
+    <span class="add-book_desc-desc">Описание книги</span>
+    <textarea class="add-boot_desc-input" name="description"></textarea>
+  </label>
+  <label class="add-book_file-book_label">
+    <span class="add-book_file-book_desc">Текст книги</span>
+    <input class="add-boot_file-book_input" name="book" type="file">
+  </label>
+  <button class="add-book_submit">Добавить</button>
+</form>
+
+<%- include("../port/layout-end") %>

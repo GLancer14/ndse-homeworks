@@ -1,0 +1,22 @@
+<%- include("./port/layout-start") %>
+<%- include("./port/menu") %>
+
+<h1 class="page-header"><%= title %></h1>
+<div class="books_list">
+  <% books.map((book, index) => { %>
+    <div class="books_list-item">
+      <div class="book_id"><%= index + 1 %></div>
+      <div class="book_name">
+        <a href="books/<%= book.id %>" class="book_name-link"><%= book.title %></a>
+      </div>
+      <div class="book_actions">
+        <a href="books/book/update/<%= book.id %>" class="book_edit-btn">Изменить</a>
+        <form class="book_actions_delete-form" action="api/books/<%= book.id %>?_method=DELETE" method="POST">
+          <button class="book_actions_delete-btn">Удалить</button>
+        </form>
+      </div>
+    </div>
+  <%});%>
+</div>
+
+<%- include("./port/layout-end") %>

@@ -1,0 +1,14 @@
+<%- include("../port/layout-start") %>
+<%- include("../port/menu") %>
+
+<h1 class="page-header"><%= book.title %></h1>
+<div class="book-wrp">
+  <% if (book.favorite) { %>
+    <div class="book-favorite">Избанная книга</div>
+  <% } %>
+  <div class="book-name"><%= book.title %></div>
+  <div class="book-authors"><%= book.authors %></div>
+  <div class="book-description"><%= book.description %></div>
+</div>
+
+<%- include("../port/layout-end") %>
