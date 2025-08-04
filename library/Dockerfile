@@ -9,6 +9,7 @@ COPY ./src ./src
 COPY ./middleware ./middleware
 COPY ./public ./public
 COPY ./routes ./routes
+COPY ./views ./views
 
 EXPOSE 3000
 

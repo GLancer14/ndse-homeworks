@@ -136,13 +136,17 @@ body {
   cursor: pointer;
 }
 
-.add-boot_desc-textarea {
+.add-book_desc-textarea {
   min-height: 100px;
 }
 
 .add-book_file-book_label {
   margin: 10px 0;
 
+  cursor: pointer;
+}
+
+.add-book_file-book_input:hover {
   cursor: pointer;
 }
 
@@ -203,13 +207,17 @@ body {
   cursor: pointer;
 }
 
-.update-boot_desc-textarea {
+.update-book_desc-textarea {
   min-height: 100px;
 }
 
 .update-book_file-book_label {
   margin: 10px 0;
 
+  cursor: pointer;
+}
+
+.update-book_file-book_input:hover {
   cursor: pointer;
 }
 
@@ -238,4 +246,22 @@ body {
   flex-direction: column;
   row-gap: 10px;
   margin-top: 10px;
+}
+
+.book-download-form-submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 30px;
+
+  font-size: 14px;
+
+  background-color: white;
+  color: black;
+}
+
+.book-download-form-submit:hover {
+  background-color: black;
+  color: white;
 }

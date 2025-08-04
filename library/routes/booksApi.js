@@ -16,9 +16,11 @@ router.post("/", fileMulter.single("book"), (req, res) => {
   if (req.file) {
     newBook.fileBook = req.file.filename;
   }
-  console.log(req.body);
 
-  books.push(newBook);
+  books.push({
+    ...newBook,
+    favorite: req.body.favorite ? true : false,
+  });
   res.status(201);
   res.redirect("/");
 });
@@ -29,14 +31,13 @@ router.get("/:id", (req, res) => {
     res.json({ book });
   } else {
     res.status(404);
-    res.json({ message: "404 Not found" });
+    res.redirect("/404");
   }
 });
 
 router.put("/:id", fileMulter.single("book"), (req, res) => {
   const bookIndex = books.findIndex(item => item.id === req.params.id);
   if (bookIndex !== -1) {
-    console.log(req.body);
     books[bookIndex] = {
       ...books[bookIndex],
       ...req.body,
@@ -54,7 +55,7 @@ router.put("/:id", fileMulter.single("book"), (req, res) => {
     res.redirect("/");
   } else {
     res.status(404);
-    res.json({ message: "404 Not found" });
+    res.redirect("/404");
   }
 });
 
@@ -73,7 +74,7 @@ router.delete("/:id", (req, res) => {
     res.redirect("/");
   } else {
     res.status(404);
-    res.json({ message: "404 Not found" });
+    res.redirect("/404");
   }
 });
 
@@ -83,12 +84,12 @@ router.get("/:id/download", (req, res) => {
     res.download(__dirname + `/../public/books/${book.fileBook}`, err => {
       if (err) {
         res.status(404);
-        res.json({ message: "404 Not found" });
+        res.redirect("/404");
       }
     });
   } else {
     res.status(404);
-    res.json({ message: "404 Not found" });
+    res.redirect("/404");
   }
 });
 

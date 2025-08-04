@@ -24,10 +24,10 @@ router.get("/:id", (req, res) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-        }
+        },
       }, apiRes => {
         let data = "";
-        apiRes.on("data", (chunk) => {
+        apiRes.on("data", chunk => {
           data += chunk;
         });
         apiRes.on("end", () => {
@@ -38,7 +38,7 @@ router.get("/:id", (req, res) => {
             title: "Книги",
           });
         });
-      }).on("error", (e) => {
+      }).on("error", e => {
         console.error(e);
       });
   
@@ -64,7 +64,6 @@ router.get("/book/update/:id", (req, res) => {
     });
     apiRes.on("end", () => {
       const parsedData = JSON.parse(rawData);
-      console.log(parsedData)
       res.render("../views/books/update", {
         book: parsedData.book,
         title: "Книги",

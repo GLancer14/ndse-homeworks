@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
     });
     apiRes.on("end", () => {
       const parsedData = JSON.parse(rawData);
-      res.render("../views/index", {books: parsedData, title: "Книги"});
+      res.render("../views/index", { books: parsedData, title: "Книги" });
     });
   }).on("error", e => {
     console.log(e);

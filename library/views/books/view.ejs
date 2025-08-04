@@ -10,9 +10,12 @@
   <% if (book.favorite === true) { %>
     <div class="book-favorite">Избранная книга</div>
   <% } %>
-  <div class="book-name"><%= book.title %></div>
-  <div class="book-authors"><%= book.authors %></div>
-  <div class="book-description"><%= book.description %></div>
+  <div class="book-name">Название: <%= book.title %></div>
+  <div class="book-authors">Авторы: <%= book.authors %></div>
+  <div class="book-description">Описание: <%= book.description %></div>
+  <form class="book-download-form" action="/api/books/<%= book.id %>/download">
+    <button class="book-download-form-submit">Скачать</button>
+  </form>
 </div>
 
 <%- include("../port/layout-end") %>
