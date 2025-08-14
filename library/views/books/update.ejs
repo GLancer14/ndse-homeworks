@@ -2,7 +2,7 @@
 <%- include("../port/header") %>
 
 <h2 class="page-header">Изменить книгу <%= book.title %></h2>
-<form class="form_update-book" action="/api/books/<%= book.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+<form class="form_update-book" action="/api/books/<%= book._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
   <label class="update-book_favorite-label">
     <span class="update-book_favorite-desc">Добавить в избранное</span>
     <input class="update-book_favorite-input" name="favorite" type="checkbox" value="true" <%= (book.favorite === true ? "checked" : "") %>>

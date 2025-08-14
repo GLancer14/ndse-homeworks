@@ -13,7 +13,7 @@
   <div class="book-name">Название: <%= book.title %></div>
   <div class="book-authors">Авторы: <%= book.authors %></div>
   <div class="book-description">Описание: <%= book.description %></div>
-  <form class="book-download-form" action="/api/books/<%= book.id %>/download">
+  <form class="book-download-form" action="/api/books/<%= book._id %>/download">
     <button class="book-download-form-submit">Скачать</button>
   </form>
 </div>
