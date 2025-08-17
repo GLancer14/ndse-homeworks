@@ -1,0 +1,17 @@
+<%- include("../port/layout-start") %>
+<%- include("../port/header") %>
+
+<h2 class="page-header">Зарегистрироваться</h2>
+<form class="form_add-book" action="/api/user/signup" method="POST">
+  <label class="add-book_favorite-label">
+    <span class="add-book_favorite-desc">Имя пользователя</span>
+    <input class="add-book_favorite-input" name="username" type="text">
+  </label>
+  <label class="add-book_name-label">
+    <span class="add-book_name-desc">Пароль</span>
+    <input class="add-book_name-input" name="password" type="password">
+  </label>
+  <button class="add-book_submit">Отправить</button>
+</form>
+
+<%- include("../port/layout-end") %>
