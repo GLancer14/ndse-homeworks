@@ -1,5 +1,5 @@
 <%- include("../port/layout-start") %>
-<%- include("../port/header") %>
+<%- include("../port/header", { user: user }) %>
 
 <h2 class="page-header">Изменить книгу <%= book.title %></h2>
 <form class="form_update-book" action="/api/books/<%= book._id %>?_method=PUT" method="POST" enctype="multipart/form-data">

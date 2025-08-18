@@ -36,6 +36,7 @@ router.get("/:id", (req, res) => {
             book,
             viewsCount: data,
             title: "Книги",
+            user: req.user,
           });
         });
       }).on("error", e => {
@@ -67,6 +68,7 @@ router.get("/book/update/:id", (req, res) => {
       res.render("../views/books/update", {
         book: parsedData.book,
         title: "Книги",
+        user: req.user,
       });
     });
   }).on("error", e => {
@@ -75,7 +77,7 @@ router.get("/book/update/:id", (req, res) => {
 });
 
 router.get("/book/add", (req, res) => {
-  res.render("../views/books/create");
+  res.render("../views/books/create", { user: req.user });
 });
 
 module.exports = router;

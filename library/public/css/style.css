@@ -41,18 +41,28 @@ body {
   background-color: rgb(77, 77, 77);
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
 .page-header {
   margin-top: 20px;
 }
 
 .book-wrp {
   width: 300px;
+}
+
+/* header */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.library_menu_list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+  gap: 15px;
 }
 
 /* index */
@@ -264,4 +274,96 @@ body {
 .book-download-form-submit:hover {
   background-color: black;
   color: white;
+}
+
+/* login page */
+
+.form_signup {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  margin-top: 10px;
+}
+
+.signup_username-label {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+
+  cursor: pointer;
+}
+
+.signup_password-label {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+
+  cursor: pointer;
+}
+
+.signup_submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 30px;
+
+  font-size: 14px;
+
+  background-color: white;
+  color: black;
+}
+
+.signup_submit:hover {
+  background-color: black;
+  color: white;
+}
+
+/* login page */
+
+.form_login {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  margin-top: 10px;
+}
+
+.login_username-label {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+
+  cursor: pointer;
+}
+
+.login_password-label {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+
+  cursor: pointer;
+}
+
+.login_submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 30px;
+
+  font-size: 14px;
+
+  background-color: white;
+  color: black;
+}
+
+.login_submit:hover {
+  background-color: black;
+  color: white;
+}
+
+/* user profile page */
+
+.user-name {
+  margin-top: 10px;
 }

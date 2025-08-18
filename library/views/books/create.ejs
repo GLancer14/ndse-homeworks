@@ -1,5 +1,5 @@
 <%- include("../port/layout-start") %>
-<%- include("../port/header") %>
+<%- include("../port/header", { user: user }) %>
 
 <h2 class="page-header">Добавить книгу</h2>
 <form class="form_add-book" action="/api/books" method="POST" enctype="multipart/form-data">

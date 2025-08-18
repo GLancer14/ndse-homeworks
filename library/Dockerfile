@@ -10,6 +10,7 @@ COPY ./middleware ./middleware
 COPY ./public ./public
 COPY ./routes ./routes
 COPY ./views ./views
+COPY ./models ./models
 
 EXPOSE 3000
 

@@ -1,0 +1,9 @@
+<%- include("../port/layout-start") %>
+<%- include("../port/header", { user: user }) %>
+
+<h2 class="page-header">Профиль</h2>
+<div class="user-name">
+  Имя пользователя: <%= user._doc.username %>
+</div>
+
+<%- include("../port/layout-end") %>

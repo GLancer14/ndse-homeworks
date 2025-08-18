@@ -2,17 +2,28 @@
   <h1 class="container-header">
     <a href="/" class="container-header_link">Библиотека</a>
   </h1>
-  <nav class="books_menu">
-    <ul class="books_menu_list">
-      <li class="books_menu_list-item">
-        <a class="books_add-book_btn" href="/books/book/add">Добавить книгу</a>
+  <nav class="library_menu">
+    <ul class="library_menu_list">
+      <li class="library_menu_list-item">
+        <a class="library_add-book_btn" href="/books/book/add">Добавить книгу</a>
       </li>
-      <li class="books_menu_list-item">
-        <a class="books_add-book_btn" href="/api/user/login">Вход</a>
-      </li>
-      <li class="books_menu_list-item">
-        <a class="books_add-book_btn" href="/api/user/signup">Регистрация</a>
-      </li>
+      <% if (!user?._doc) { %>
+        <li class="library_menu_list-item">
+          <a class="library_login_btn" href="/api/user/login">Вход</a>
+        </li>
+        <li class="library_menu_list-item">
+          <a class="library_signup_btn" href="/api/user/signup">Регистрация</a>
+        </li>
+      <% } else { %>
+        <li class="library_menu_list-item">
+          <span class="library_add-book_btn">
+            Привет, <a class="library_signup_btn" href="/api/user/me"><%= user._doc.username %></a>
+          </span>
+        </li>
+        <li class="library_menu_list-item">
+          <a class="library_add-book_btn" href="/api/user/logout">Выход</a>
+        </li>
+      <% } %>
     </ul>
   </nav>
 </header>
