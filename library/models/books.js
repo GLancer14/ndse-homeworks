@@ -29,6 +29,10 @@ const booksSchema = new Schema({
     type: "string",
     default: "",
   },
+  comments: {
+    type: "array",
+    default: [],
+  },
 });
 
 module.exports = model("Books", booksSchema);
