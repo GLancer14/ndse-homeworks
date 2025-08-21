@@ -11,6 +11,7 @@ COPY ./public ./public
 COPY ./routes ./routes
 COPY ./views ./views
 COPY ./models ./models
+COPY ./websocket ./websocket
 
 EXPOSE 3000
 

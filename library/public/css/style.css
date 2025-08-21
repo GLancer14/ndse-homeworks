@@ -367,3 +367,53 @@ body {
 .user-name {
   margin-top: 10px;
 }
+
+/* book chat */
+
+.book-chat {
+  width: 400px;
+  margin-top: 10px;
+}
+
+.book-chat-messages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-height: 300px;
+  padding: 5px;
+
+  overflow-y: auto;
+  background-color: rgb(39, 39, 39)
+}
+
+.book-chat-message {
+  padding: 5px;
+
+  border-radius: 5px;
+  background-color: rgb(80, 80, 80);
+}
+
+.book-chat-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.book-chat-form-send {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 30px;
+
+  font-size: 14px;
+
+  background-color: white;
+  color: black;
+}
+
+.book-chat-form-send:hover {
+  background-color: black;
+  color: white;
+}

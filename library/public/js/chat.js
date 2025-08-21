@@ -7,7 +7,7 @@ function createMessageBlock(msg) {
   return `
     <div class="book-chat-message">
       <div class="book_name">
-        ${msg.username === "" ? "Аноним" : msg.username}
+        Автор: ${msg.username === "" ? "Аноним" : msg.username}
       </div>
       <div class="book_actions">
         ${msg.message}
@@ -16,12 +16,12 @@ function createMessageBlock(msg) {
   `;
 }
 
-socket.on("message-to-room", (msg) => {
-  console.log(msg)
+socket.on("message-to-room", msg => {
   messagesList.insertAdjacentHTML("beforeend", createMessageBlock(msg));
+  messagesList.scrollTop = messagesList.scrollHeight;
 });
 
-sendForm.addEventListener("submit", (e) => {
+sendForm.addEventListener("submit", e => {
   e.preventDefault();
   socket.emit("message-to-room", {
     username: username || "",

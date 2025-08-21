@@ -17,11 +17,12 @@
     <button class="book-download-form-submit">Скачать</button>
   </form>
   <div class="book-chat">
+    <h3>Комментарии</h3>
     <div class="book-chat-messages-list">
       <% book.comments.map((comment, index) => { %>
         <div class="book-chat-message">
           <div class="book_name">
-            <%= comment.username === "" ? "Аноним" : comment.username %>
+            Автор: <%= comment.username === "" ? "Аноним" : comment.username %>
           </div>
           <div class="book_actions">
             <%= comment.message %>
@@ -30,7 +31,7 @@
       <% }); %>
     </div>
     <form class="book-chat-form">
-      <input class="book-chat-form-input" name="book-chat-form-input" type="text" required>
+      <input class="book-chat-form-input" name="book-chat-form-input" type="text" placeholder="Ваш комментарий" required>
       <button class="book-chat-form-send">Отправить</button>
     </form>
   </div>
